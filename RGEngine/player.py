@@ -1,6 +1,7 @@
 from unicurses import *
 
 class Player:
+    """Player class"""
     def __init__(self,screen, x, y, world):
         self.x = x
         self.y = y
@@ -10,7 +11,8 @@ class Player:
         wmove(screen, y, x)
         waddstr(screen, self.symbol)
 
-    def move(self, x, y, ):
+    def move(self, x, y):
+        """Moving to x and y"""
         next_world_object = self.world.find_block(x-1, y-1)
         if next_world_object != None and next_world_object.isPassable:
             past_world_object = self.world.find_block(self.x-1, self.y-1)

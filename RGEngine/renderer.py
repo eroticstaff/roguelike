@@ -1,6 +1,8 @@
 from unicurses import *
 class GameScreen:
+    """Game screen class """
     def __init__(self, stdscr, tool_window_size = 30, info_window_size = 10):
+        """Drawing and initializing all windows of the game"""
         self.max_y, self.max_x = getmaxyx(stdscr)
         self.tool_panel_size = tool_window_size
         self.info_panel_size = info_window_size
@@ -21,5 +23,6 @@ class GameScreen:
         box(self.info_window)
         self.info_panel = new_panel(self.info_window)
     def render(self):
+        """Update and draw everything in the scene"""
         update_panels()
         doupdate()
