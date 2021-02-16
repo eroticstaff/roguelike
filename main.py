@@ -8,8 +8,6 @@ start_color()
 noecho()
 curs_set(False)
 
-
-
 game_screen = GameScreen(stdscr)
 game_screen.render()
 
@@ -18,13 +16,14 @@ world_map = []
 for i in range(15):
     for j in range(15):
         if i == 5 and j == 5:
-            world_map.append(Wall(i,j))
+            world_map.append(Wall(i, j))
         else:
             world_map.append(Grass(i, j))
 
 world = World(world_map)
 world.draw(game_screen.screen)
 player = Player(game_screen.screen, 2, 2, world)
+game_screen.render()
 
 while True:
     key = getch()
